@@ -1,0 +1,23 @@
+.loading-icon-test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 0.5rem;
+  max-width: fit-content;
+  min-height: fit-content;
+  border-radius: 0.75rem;
+  background-color: var(--c2);
+
+  & button {
+    width: 100%;
+  }
+}
+
+.ui-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

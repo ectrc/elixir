@@ -1,0 +1,220 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  gap: 0.25rem;
+  min-width: max-content;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--t1);
+  text-shadow: 0 0 1.5rem #00000050;
+  border-radius: 0.35rem;
+  background-image: linear-gradient(45deg, var(--v1), var(--v2));
+  border: none;
+  transition: filter 150ms;
+}
+
+.button.width {
+  width: 100%;
+}
+
+.button:hover {
+  filter: hue-rotate(-20deg);
+  cursor: pointer;
+}
+
+.button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.button.dull {
+  background-image: none;
+  background-color: var(--c3);
+}
+
+.button.dull:hover {
+  filter: none;
+  background-color: var(--c4);
+}
+
+.button.discord {
+  background-image: linear-gradient(45deg, #4463d3, #7458f2);
+}
+
+.button.hidden {
+  color: var(--t2);
+  transition: color 150ms, background-color 150ms;
+}
+
+.button.hidden:hover {
+  filter: none;
+  background-color: var(--c4);
+}
+
+.button.hidden svg {
+  fill: var(--t2);
+  transition: fill 150ms;
+}
+
+.button.hidden:hover svg {
+  fill: var(--t1);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+code {
+  padding: 0.25rem;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--t1);
+  background-color: var(--c2);
+  border-radius: 0.35rem;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  user-select: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--t3);
+}
+
+input {
+  display: flex;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--t1);
+  outline: none;
+  border: none;
+  border-radius: 0.35rem;
+  background-color: #a275c736;
+}
+
+input::placeholder {
+  color: var(--t3);
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+button.donate {
+  opacity: 0.9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.45rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: var(--t1);
+  user-select: none;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--v1);
+  transition: filter 150ms, scale 80ms ease-in-out;
+  animation: swurl-bg 10s linear infinite forwards;
+
+  & b {
+    color: var(--t1);
+    font-weight: 500;
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+
+  .close {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    margin-left: auto;
+    height: 100%;
+    aspect-ratio: 1/1;
+    fill: var(--t1);
+    border-radius: 0.35rem;
+    background-color: #00000041;
+    transition: background-color 150ms;
+  }
+
+  .close:hover {
+    background-color: #00000061;
+  }
+}
+
+.close:active .donate {
+  scale: 1;
+}
+
+@keyframes swurl-bg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(100deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+button.donate:hover {
+  filter: brightness(1.2);
+}
+
+.RadialProgress {
+  --hue: 262;
+  --holesize: 62%;
+
+  block-size: 15vmin;
+  inline-size: 15vmin;
+  min-inline-size: 100px;
+  min-block-size: 100px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  font-weight: 700;
+  font-size: max(2vmin, 1.6rem);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    background: conic-gradient(
+      hsl(var(--hue) 100% 70%),
+      hsl(var(--hue) 100% 40%),
+      hsl(var(--hue) 100% 70%) var(--progress),
+      var(--c2) var(--progress) 100%
+    );
+
+    mask-image: radial-gradient(
+      transparent var(--holesize),
+      black calc(var(--holesize) + 0.5px)
+    );
+  }
+}

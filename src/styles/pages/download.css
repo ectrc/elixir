@@ -1,0 +1,119 @@
+.download {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 1rem;
+}
+
+.dl-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--c2);
+  border-radius: 0.5rem;
+  transition: border 200ms, opacity 200ms, background-color 200ms,
+    transform 200ms;
+  animation: a2 300ms ease forwards;
+  animation-delay: calc(attr(data-idx) * 500ms);
+
+  .logo {
+    display: flex;
+    gap: 0.75rem;
+    position: relative;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-height: min-content;
+
+    & img {
+      width: 3.5rem;
+      height: 3.5rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      filter: brightness(1);
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & p {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--t3);
+      margin: 0;
+    }
+  }
+}
+
+.download-build {
+  cursor: not-allowed !important;
+}
+
+.dl-container:hover {
+  cursor: pointer;
+}
+
+.dl-container:active {
+  transform: scale(0.98);
+}
+
+.download-build {
+  display: flex;
+  align-items: center;
+}
+
+.download-build .item {
+  gap: 0.25rem;
+  padding: 0.5rem;
+  color: var(--t1);
+  border-radius: 0.5rem;
+  transition: opacity 100ms, background-color 200ms;
+
+  & svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--t3);
+  }
+}
+
+.progress {
+  background-color: var(--c2);
+  padding: 1rem;
+
+  .bar {
+    flex: 1;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--c4);
+    position: relative;
+    overflow: hidden;
+
+    .value {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 0.25rem;
+      background-image: linear-gradient(to right, var(--v1), var(--v2));
+      background-size: 200% 100%; /* Verdoppelte Breite für den animierten Effekt */
+      animation: progressAnimation 2s linear infinite;
+    }
+
+    @keyframes progressAnimation {
+      0% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: -100% 0;
+      }
+    }
+  }
+  .details {
+    display: flex;
+    justify-content: right;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+}

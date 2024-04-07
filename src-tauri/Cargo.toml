@@ -1,0 +1,40 @@
+[package]
+name = "app"
+version = "0.1.0"
+description = "Elixir Launcher"
+authors = ["Scar, Eccentric"]
+license = ""
+repository = ""
+default-run = "app"
+edition = "2021"
+rust-version = "1.70"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.5.0", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+window-shadows = "0.2.2"
+log = "0.4.17"
+tasklist = "0.2.13"
+dll-injector="0.1.2"
+sysinfo = "0.29.10"
+serde = { version = "1.0", features = ["derive"] }
+reqwest = { version = "0.11.3", features = ["stream"] }
+futures-util = "0.3.14"
+unrar = "0.5.1"
+indicatif = "0.15.0"
+tokio = "1.28.2"
+sha2 = "0.9"
+tauri = { version = "1.5.2", features = [ "protocol-asset", "shell-open", "path-all", "dialog-open", "dialog-save", "window-all"] }
+winapi = { version = "0.3", features = ["tlhelp32"] }
+tauri-plugin-deep-link = { git = "https://github.com/FabianLars/tauri-plugin-deep-link", branch = "main" }
+regex = "1"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
+# If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

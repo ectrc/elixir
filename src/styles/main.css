@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Bricolage";
+  src: url("/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 1000;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/FiraCode-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 700;
+}
+
+:root {
+  --c1: #0a090e;
+  --c1-2: #0e0d12;
+  --c2: #16131c;
+  --c3: #1d1925;
+  --c4: #1f1b29;
+  --c4-5: #231f2e;
+  --c5: #2a2534;
+
+  --v1: #804bd6;
+  --v1-trans: #804bd6a0;
+  --v2: #c957a7;
+  --v2-trans: #c957a7a0;
+
+  --r1: #db2c1f;
+  --r2: #d63226;
+  --r3: #b3352a;
+
+  --g1: #2f9e44;
+  --g2: #2b9348;
+  --g3: #237844;
+
+  --t1: #eeecf1;
+  --t2: #c7c3d0;
+  --t3: #9a8fb1;
+  --t4: #6e5e8e;
+  --f1: "Bricolage";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--f1);
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--c4);
+  border-radius: 0.25rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--c5);
+}
+
+body,
+html {
+  background-color: var(--c1);
+  color: var(--t1);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+main.blurred {
+  position: relative;
+  user-select: none;
+}
+
+main.blurred::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c1);
+  backdrop-filter: blur(0.5rem);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.info-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  inset: auto 0.5rem 0.5rem auto;
+}
+
+@keyframes a1 {
+  from {
+    opacity: 0.3;
+    transform: translateY(-1rem);
+    scale: 1.01;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  left: -10vw;
+  z-index: 100;
+  width: 120vw;
+  height: 110vh;
+  pointer-events: none;
+}
+
+.credits {
+  z-index: 9999;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  user-select: none;
+  pointer-events: none;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--t3);
+  transition: color 200ms;
+}
+
+button:focus {
+  outline: none;
+}

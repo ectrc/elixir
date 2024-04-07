@@ -1,0 +1,91 @@
+.tauri-frame {
+  z-index: 101;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--c2);
+}
+
+.dragbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  width: 100vw;
+  min-height: 2.25rem;
+  background-color: var(--c2);
+}
+
+.dragbar .icon {
+  position: absolute;
+  inset: 1rem;
+  width: 2.25rem;
+  height: 2rem;
+  fill: var(--t1);
+}
+
+.dragbar .icon svg {
+  width: 100%;
+  height: 100%;
+  color: var(--t1);
+}
+
+.dragbar .spacer {
+  flex-grow: 1;
+}
+
+.dragbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: transparent;
+  border-radius: 0.35rem;
+  transition: background-color 150ms;
+}
+
+.dragbar button:hover {
+  background-color: var(--c3);
+  cursor: pointer;
+}
+
+.dragbar button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--t2);
+  transition: fill 150ms;
+}
+
+.dragbar button:hover svg {
+  fill: var(--t1);
+}
+
+.tauri-frame .main-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.tauri-frame .main-frame > .content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 0.5rem 0 0 0;
+  /* border-top: 0.15rem solid var(--c3);
+  border-left: 0.15rem solid var(--c3); */
+  background-color: var(--c1-2);
+}
+
+.tauri-frame .main-frame > .content .inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
